@@ -15,6 +15,16 @@ public class SquareTest {
 	}
 
 	@Test
+	public void checkConfirm(){
+		Square square = new Square();
+		assertFalse(square.isConfirm());
+
+		square.confirmNumber(5);
+		assertTrue(square.isConfirm());
+		assertEquals(5, square.getNumber());
+	}
+
+	@Test
 	public void deleteSquareNumber(){
 		Square square = new Square();
 		square.delete(3);
