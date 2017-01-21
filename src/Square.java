@@ -3,8 +3,24 @@ import java.util.List;
 
 public class Square {
 	ArrayList<Integer> square;
+	int number;
+
 	public Square(){
 		this.square = initSquare();
+		this.number = -1;
+	}
+
+	public void confirmNumber(int num){
+		number = num;
+	}
+
+	public Boolean isConfirm(){
+		if(number == -1) return false;
+		return true;
+	}
+
+	public int getNumber(){
+		return number;
 	}
 
 	public ArrayList<Integer> initSquare(){
@@ -19,7 +35,7 @@ public class Square {
 		int pos = square.indexOf(num);
 		if(pos == -1) return;
 
-		this.square.remove(pos);
+		square.remove(pos);
 		return;
 	}
 
@@ -30,6 +46,6 @@ public class Square {
 	}
 
 	public ArrayList<Integer> getSquare(){
-		return this.square;
+		return square;
 	}
 }
