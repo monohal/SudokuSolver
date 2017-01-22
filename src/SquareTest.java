@@ -51,4 +51,17 @@ public class SquareTest {
 		VerticalLine verLine = new VerticalLine();
 		assertEquals(9, verLine.getSquares().size());
 	}
+
+	@Test
+	public void testConfirmVerticalLine(){
+		VerticalLine verLine = new VerticalLine();
+		verLine.confirm(5, 1);
+
+		assertEquals(1, verLine.getSquare(5).getNumber());
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 verLine.getSquare(1).square);
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 verLine.getSquare(8).square);
+	}
+
 }
