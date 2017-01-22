@@ -1,4 +1,6 @@
 
-public class HorizonLine {
-
+public class HorizonLine extends SudokuUnit{
+	public HorizonLine(){
+		super();
+	}
 }
