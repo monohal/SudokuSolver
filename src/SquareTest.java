@@ -8,14 +8,14 @@ import org.junit.Test;
 public class SquareTest {
 
 	@Test
-	public void checkInitSquare(){
+	public void testInitSquare(){
 		Square square = new Square();
 		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)),
 				square.getSquare());
 	}
 
 	@Test
-	public void checkConfirm(){
+	public void testConfirmNumber(){
 		Square square = new Square();
 		assertFalse(square.isConfirm());
 
@@ -25,7 +25,7 @@ public class SquareTest {
 	}
 
 	@Test
-	public void deleteSquareNumber(){
+	public void testDeleteSquareNumber(){
 		Square square = new Square();
 		square.delete(3);
 		square.delete(4);
@@ -47,7 +47,7 @@ public class SquareTest {
 	}
 
 	@Test
-	public void checkInitVerticalLine(){
+	public void testInitVerticalLine(){
 		VerticalLine verLine = new VerticalLine();
 		assertEquals(9, verLine.getSquares().size());
 	}
