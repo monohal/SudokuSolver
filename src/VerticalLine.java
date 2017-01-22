@@ -11,4 +11,20 @@ public class VerticalLine {
 	public ArrayList<Square> getSquares(){
 		return this.squares;
 	}
+
+	public void confirm(int pos, int num){
+		Square square = getSquare(pos);
+		square.confirmNumber(num);
+		deleteAllNumberOfSquare(num);
+	}
+
+	public void deleteAllNumberOfSquare(int num){
+		for(Square square : squares){
+			square.delete(num);
+		}
+	}
+
+	public Square getSquare(int pos){
+		return squares.get(pos);
+	}
 }
