@@ -64,4 +64,15 @@ public class SquareTest {
 				 verLine.getSquare(8).square);
 	}
 
+	@Test
+	public void testConfirmHorizonLine(){
+		HorizonLine horLine = new HorizonLine();
+		horLine.confirm(5, 1);
+
+		assertEquals(1, horLine.getSquare(5).getNumber());
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 horLine.getSquare(1).square);
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 horLine.getSquare(8).square);
+	}
 }
