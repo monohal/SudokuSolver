@@ -75,4 +75,16 @@ public class SquareTest {
 		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 horLine.getSquare(8).square);
 	}
+
+	@Test
+	public void testConfirmBox(){
+		Box box = new Box();
+		box.confirm(5, 1);
+
+		assertEquals(1, box.getSquare(5).getNumber());
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 box.getSquare(1).square);
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				 box.getSquare(8).square);
+	}
 }
