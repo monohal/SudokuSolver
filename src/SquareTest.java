@@ -87,4 +87,12 @@ public class SquareTest {
 		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 box.getSquare(8).square);
 	}
+
+	@Test
+	public void testSudokuSolver(){
+		SudokuSolver solver = new SudokuSolver();
+		assertEquals(9, solver.verLines.size());
+		assertEquals(9, solver.horLines.size());
+		assertEquals(9, solver.boxes.size());
+	}
 }
