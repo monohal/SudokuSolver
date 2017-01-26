@@ -95,4 +95,18 @@ public class SquareTest {
 		assertEquals(9, solver.horLines.size());
 		assertEquals(9, solver.boxes.size());
 	}
+
+	@Test
+	public void testConfirmNumberOfSolver(){
+		SudokuSolver solver = new SudokuSolver();
+		solver.confirm(4, 3, 1);
+		VerticalLine verLine = solver.getVerLine(4);
+
+		assertTrue(verLine.getSquare(3).isConfirm());
+		assertEquals(1, verLine.getSquare(3).getNumber());
+
+		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				verLine.getSquare(1).getSquareArray());
+
+	}
 }
