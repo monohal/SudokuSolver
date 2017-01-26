@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class SudokuUnit {
 	ArrayList<Square> squares = new ArrayList<Square>();
+
 	public SudokuUnit() {
 		for(int i = 0; i < 9; i++){
 			squares.add(new Square());

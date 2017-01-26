@@ -11,7 +11,7 @@ public class SquareTest {
 	public void testInitSquare(){
 		Square square = new Square();
 		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)),
-				square.getSquare());
+				square.getSquareArray());
 	}
 
 	@Test
@@ -31,19 +31,19 @@ public class SquareTest {
 		square.delete(4);
 
 		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7,8,9)),
-				square.getSquare());
+				square.getSquareArray());
 
 		square.delete(Arrays.asList(8,9));
 		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7)),
-				square.getSquare());
+				square.getSquareArray());
 
 		square.delete(3);
 		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7)),
-				square.getSquare());
+				square.getSquareArray());
 
 		square.delete(Arrays.asList(1,9));
 		assertEquals(new ArrayList<Integer>(Arrays.asList(2,5,6,7)),
-				square.getSquare());
+				square.getSquareArray());
 	}
 
 	@Test

@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 
 public class SudokuSolver {
-	ArrayList<HorizonLine> horLines;
 	ArrayList<VerticalLine> verLines;
+	ArrayList<HorizonLine> horLines;
 	ArrayList<Box> boxes;
 
 	public SudokuSolver(){
-		horLines = new ArrayList<HorizonLine>();
 		verLines = new ArrayList<VerticalLine>();
+		horLines = new ArrayList<HorizonLine>();
+
 		boxes = new ArrayList<Box>();
 
 		for(int i = 0; i < 9; i++){

@@ -45,7 +45,7 @@ public class Square {
 		}
 	}
 
-	public ArrayList<Integer> getSquare(){
+	public ArrayList<Integer> getSquareArray(){
 		return square;
 	}
 }
