@@ -108,5 +108,39 @@ public class SquareTest {
 		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				verLine.getSquare(1).getSquareArray());
 
+	@Test
+	public void testSync(){
+		SudokuSolver solver = new SudokuSolver();
+		solver.confirm(0, 0, 1);
+		solver.confirm(1, 1, 2);
+		solver.confirm(1, 8, 3);
+		solver.confirm(8, 1, 4);
+		solver.confirm(4, 4, 5);
+		solver.sync();
+
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,5,6,7,8,9)),
+				solver.getVerSquare(0, 1).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(4,5,6,7,8,9)),
+				solver.getVerSquare(1, 0).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,4,5,6,7,8,9)),
+				solver.getVerSquare(2, 2).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)),
+				solver.getVerSquare(7, 7).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,5,6,7,8,9)),
+				solver.getVerSquare(8, 8).getSquareSet());
+
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,5,6,7,8,9)),
+				solver.getHorSquare(0, 1).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(4,5,6,7,8,9)),
+				solver.getHorSquare(1, 0).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,4,5,6,7,8,9)),
+				solver.getHorSquare(2, 2).getSquareSet());
+
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,5,6,7,8,9)),
+				solver.getBoxSquare(0, 1).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(4,5,6,7,8,9)),
+				solver.getBoxSquare(1, 0).getSquareSet());
+		assertEquals(new HashSet<Integer>(Arrays.asList(3,4,5,6,7,8,9)),
+				solver.getBoxSquare(2, 2).getSquareSet());
 	}
 }
