@@ -1,8 +1,9 @@
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Square {
-	ArrayList<Integer> square;
+	Set<Integer> square;
 	int number;
 
 	public Square(){
@@ -23,19 +24,18 @@ public class Square {
 		return number;
 	}
 
-	public ArrayList<Integer> initSquare(){
-		ArrayList<Integer> array = new ArrayList<Integer>();
+	public Set<Integer> initSquare(){
+		Set<Integer> set = new HashSet<>();
 		for(int i = 1; i <= 9; i++){
-			array.add(i);
+			set.add(i);
 		}
-		return array;
+		return set;
 	}
 
 	public void delete(int num){
-		int pos = square.indexOf(num);
-		if(pos == -1) return;
+		if(! square.contains(num)) return;
 
-		square.remove(pos);
+		square.remove(num);
 		return;
 	}
 
@@ -45,7 +45,7 @@ public class Square {
 		}
 	}
 
-	public ArrayList<Integer> getSquareArray(){
+	public Set<Integer> getSquareSet(){
 		return square;
 	}
 }

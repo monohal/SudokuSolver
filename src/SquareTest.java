@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Test;
 
@@ -10,8 +10,8 @@ public class SquareTest {
 	@Test
 	public void testInitSquare(){
 		Square square = new Square();
-		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)),
-				square.getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)),
+				square.getSquareSet());
 	}
 
 	@Test
@@ -30,20 +30,20 @@ public class SquareTest {
 		square.delete(3);
 		square.delete(4);
 
-		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7,8,9)),
-				square.getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,5,6,7,8,9)),
+				square.getSquareSet());
 
 		square.delete(Arrays.asList(8,9));
-		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7)),
-				square.getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,5,6,7)),
+				square.getSquareSet());
 
 		square.delete(3);
-		assertEquals(new ArrayList<Integer>(Arrays.asList(1,2,5,6,7)),
-				square.getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(1,2,5,6,7)),
+				square.getSquareSet());
 
 		square.delete(Arrays.asList(1,9));
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,5,6,7)),
-				square.getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,5,6,7)),
+				square.getSquareSet());
 	}
 
 	@Test
@@ -58,9 +58,9 @@ public class SquareTest {
 		verLine.confirm(5, 1);
 
 		assertEquals(1, verLine.getSquare(5).getNumber());
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 verLine.getSquare(1).square);
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 verLine.getSquare(8).square);
 	}
 
@@ -70,9 +70,9 @@ public class SquareTest {
 		horLine.confirm(5, 1);
 
 		assertEquals(1, horLine.getSquare(5).getNumber());
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 horLine.getSquare(1).square);
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 horLine.getSquare(8).square);
 	}
 
@@ -82,9 +82,9 @@ public class SquareTest {
 		box.confirm(5, 1);
 
 		assertEquals(1, box.getSquare(5).getNumber());
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 box.getSquare(1).square);
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
 				 box.getSquare(8).square);
 	}
 
@@ -105,8 +105,9 @@ public class SquareTest {
 		assertTrue(verLine.getSquare(3).isConfirm());
 		assertEquals(1, verLine.getSquare(3).getNumber());
 
-		assertEquals(new ArrayList<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
-				verLine.getSquare(1).getSquareArray());
+		assertEquals(new HashSet<Integer>(Arrays.asList(2,3,4,5,6,7,8,9)),
+				verLine.getSquare(1).getSquareSet());
+	}
 
 	@Test
 	public void testSync(){

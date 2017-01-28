@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Set;
 
 public class SudokuSolver {
 	ArrayList<VerticalLine> verLines;
@@ -61,7 +62,7 @@ public class SudokuSolver {
 				if(square.isConfirm()){
 					System.out.print("~" + square.number);
 				}else{
-					for(int num : square.getSquareArray()){
+					for(int num : square.getSquareSet()){
 						System.out.print(num);
 					}
 				}
@@ -79,7 +80,7 @@ public class SudokuSolver {
 				if(square.isConfirm()){
 					System.out.print("~" + square.number);
 				}else{
-					for(int num : square.getSquareArray()){
+					for(int num : square.getSquareSet()){
 						System.out.print(num);
 					}
 				}
@@ -97,7 +98,7 @@ public class SudokuSolver {
 				if(square.isConfirm()){
 					System.out.print("~" + square.number);
 				}else{
-					for(int num : square.getSquareArray()){
+					for(int num : square.getSquareSet()){
 						System.out.print(num);
 					}
 				}
