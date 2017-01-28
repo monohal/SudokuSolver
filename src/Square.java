@@ -25,7 +25,7 @@ public class Square {
 	}
 
 	public Set<Integer> initSquare(){
-		Set<Integer> set = new HashSet<>();
+		Set<Integer> set = new HashSet<Integer>();
 		for(int i = 1; i <= 9; i++){
 			set.add(i);
 		}
