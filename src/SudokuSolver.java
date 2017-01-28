@@ -54,6 +54,58 @@ public class SudokuSolver {
 		return boxes.get(pos);
 	}
 
+	public Square getVerSquare(int x, int y){
+		return getVerLine(x).getSquare(y);
+	}
+
+	public Square getHorSquare(int x, int y){
+		return getHorLine(y).getSquare(x);
+	}
+
+	public Square getBoxSquare(int x, int y){
+		return getBox(x / 3 + (y / 3) * 3).getSquare(x % 3 + ((y % 3)  * 3));
+	}
+
+	public void sync(){
+		Square verSquare;
+		Square horSquare;
+		Square boxSquare;
+		Set<Integer> verSet;
+		Set<Integer> horSet;
+		Set<Integer> boxSet;
+
+		for(int x = 0; x < 9; x++){
+			for(int y = 0; y < 9; y++){
+				verSquare = getVerSquare(x, y);
+				horSquare = getHorSquare(x, y);
+				boxSquare = getBoxSquare(x, y);
+
+				if(verSquare.isConfirm()){
+					confirmHorLine(x, y, verSquare.getNumber());
+					confirmBox(x, y, verSquare.getNumber());
+				}else if(horSquare.isConfirm()){
+					confirmVerLine(x, y, horSquare.getNumber());
+					confirmBox(x, y, horSquare.getNumber());
+				}else if(boxSquare.isConfirm()){
+					confirmVerLine(x, y, boxSquare.getNumber());
+					confirmHorLine(x, y, boxSquare.getNumber());
+				}
+
+				verSet = verSquare.getSquareSet();
+				horSet = horSquare.getSquareSet();
+				boxSet = boxSquare.getSquareSet();
+
+				verSet.retainAll(horSet);
+				verSet.retainAll(boxSet);
+				horSet.retainAll(boxSet);
+				horSet.retainAll(verSet);
+				boxSet.retainAll(verSet);
+				boxSet.retainAll(horSet);
+			}
+		}
+	}
+
+
 	public void outputHorNumber(){
 		for(int i = 0; i < 9 ; i++){
 			HorizonLine horLine = getHorLine(i);
