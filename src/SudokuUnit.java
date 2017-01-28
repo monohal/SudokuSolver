@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class SudokuUnit {
+public class SudokuUnit implements Iterable<Square>{
 	ArrayList<Square> squares = new ArrayList<Square>();
 
 	public SudokuUnit() {
@@ -27,5 +28,9 @@ public class SudokuUnit {
 
 	public Square getSquare(int pos){
 		return squares.get(pos);
+	}
+
+	public Iterator<Square> iterator() {
+		return squares.iterator();
 	}
 }
