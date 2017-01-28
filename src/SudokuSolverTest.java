@@ -16,9 +16,7 @@ public class SudokuSolverTest {
 		solver.confirm(0, 5, 5);
 
 		solver.outputHorNumber();
-		System.out.println("");
 		solver.outputVerNumber();
-		System.out.println("");
 		solver.outputBoxNumber();
 	}
 

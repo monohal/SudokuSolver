@@ -39,7 +39,6 @@ public class SudokuSolver {
 		confirmVerLine(x, y, num);
 		confirmHorLine(x, y, num);
 		confirmBox(x, y, num);
-
 	}
 
 	public void confirmVerLine(int x, int y, int num){
@@ -134,6 +133,7 @@ public class SudokuSolver {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	public void outputVerNumber(){
@@ -152,6 +152,7 @@ public class SudokuSolver {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	public void outputBoxNumber(){
@@ -170,5 +171,6 @@ public class SudokuSolver {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 }
