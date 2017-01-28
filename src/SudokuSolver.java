@@ -23,6 +23,18 @@ public class SudokuSolver {
 		}
 	}
 
+	public void solve(){
+		for(int x = 0; x < 9; x++){
+			for(int y = 0; y < 9; y++){
+				Square square = getVerSquare(x, y);
+				if(square.getSquareSet().size() == 1){
+					Integer[] num = square.getSquareSet().toArray(new Integer[0]);
+					confirm(x, y, num[0]);
+				}
+			}
+		}
+	}
+
 	public void confirm(int x, int y, int num){
 		confirmVerLine(x, y, num);
 		confirmHorLine(x, y, num);
