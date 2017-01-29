@@ -6,6 +6,7 @@ public class SudokuSolver {
 	ArrayList<HorizonLine> horLines;
 	ArrayList<Box> boxes;
 
+
 	public SudokuSolver(){
 		verLines = new ArrayList<VerticalLine>();
 		horLines = new ArrayList<HorizonLine>();
@@ -23,16 +24,20 @@ public class SudokuSolver {
 		}
 	}
 
-	public void solve(){
+	public Boolean solve(){
+		Boolean flag = false;
 		for(int x = 0; x < 9; x++){
 			for(int y = 0; y < 9; y++){
 				Square square = getVerSquare(x, y);
-				if(square.getSquareSet().size() == 1){
+				if(! square.isConfirm() && square.getSquareSet().size() == 1){
 					Integer[] num = square.getSquareSet().toArray(new Integer[0]);
 					confirm(x, y, num[0]);
+					flag = true;
 				}
 			}
 		}
+		sync();
+		return flag;
 	}
 
 	public void confirm(int x, int y, int num){
@@ -115,7 +120,6 @@ public class SudokuSolver {
 			}
 		}
 	}
-
 
 	public void outputHorNumber(){
 		for(int i = 0; i < 9 ; i++){
