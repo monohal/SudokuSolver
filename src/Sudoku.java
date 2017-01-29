@@ -9,7 +9,14 @@ import com.orangesignal.csv.handlers.StringArrayListHandler;
 public class Sudoku {
 	SudokuSolver solver;
 
-	public static void main(){
+	public static void main(String args[]){
+		Sudoku sudoku = new Sudoku();
+		sudoku.readCSV("sudoku.csv");
+		Boolean flag;
+		do {
+			flag = sudoku.solver.solve();
+			sudoku.solver.outputVerNumber();
+		} while (flag);
 	}
 
 	public Sudoku() {
