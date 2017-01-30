@@ -153,13 +153,15 @@ public class SquareTest {
 		solver.confirm(6, 2, 1);
 		solver.confirm(0, 3, 1);
 		solver.confirm(1, 6, 1);
+		solver.outputVerNumber();
 
 		Boolean flag = solver.findOnlyCandidate();
 		assertTrue(flag);
 		assertTrue(solver.getVerSquare(2, 0).isConfirm());
 		assertEquals(1, solver.getVerSquare(2, 0).getNumber());
 
-		Boolean flag = solver.findOnlyCandidate();
+		flag = solver.findOnlyCandidate();
 		assertFalse(flag);
+		solver.outputVerNumber();
 	}
 }
