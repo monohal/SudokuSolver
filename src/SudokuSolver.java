@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Set;
 
 public class SudokuSolver {
@@ -26,6 +27,8 @@ public class SudokuSolver {
 
 	public Boolean solve(){
 		Boolean flag = false;
+
+		sync();
 		for(int x = 0; x < 9; x++){
 			for(int y = 0; y < 9; y++){
 				Square square = getVerSquare(x, y);
@@ -37,6 +40,46 @@ public class SudokuSolver {
 			}
 		}
 		sync();
+		return flag;
+	}
+
+	public Boolean findOnlyCandidate(){
+		Boolean flag = false;
+
+		sync();
+		for(int pos = 0; pos < 9; pos++){
+			ArrayList<Map<String, Integer>> onlyCandidateNums;
+
+			VerticalLine verLine = getVerLine(pos);
+			onlyCandidateNums = verLine.checkOnlyCandidate();
+			if(onlyCandidateNums.size() != 0){
+				for (Map<String, Integer> mapNum : onlyCandidateNums) {
+					verLine.confirm(mapNum.get("pos"), mapNum.get("num"));
+				}
+				sync();
+				flag = true;
+			}
+
+			HorizonLine horLine = getHorLine(pos);
+			onlyCandidateNums = horLine.checkOnlyCandidate();
+			if(onlyCandidateNums.size() != 0){
+				for (Map<String, Integer> mapNum : onlyCandidateNums) {
+					horLine.confirm(mapNum.get("pos"), mapNum.get("num"));
+				}
+				sync();
+				flag = true;
+			}
+
+			Box box = getBox(pos);
+			onlyCandidateNums = box.checkOnlyCandidate();
+			if(onlyCandidateNums.size() != 0){
+				for (Map<String, Integer> mapNum : onlyCandidateNums) {
+					box.confirm(mapNum.get("pos"), mapNum.get("num"));
+				}
+				sync();
+				flag = true;
+			}
+		}
 		return flag;
 	}
 
