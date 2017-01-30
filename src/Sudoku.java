@@ -11,7 +11,7 @@ public class Sudoku {
 
 	public static void main(String args[]){
 		Sudoku sudoku = new Sudoku();
-		sudoku.readCSV("sudoku.csv");
+		sudoku.readCSV("sudoku_normal.csv");
 		Boolean flag;
 		do {
 			flag = sudoku.solver.solve();
