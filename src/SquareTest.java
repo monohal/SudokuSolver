@@ -144,4 +144,48 @@ public class SquareTest {
 		assertEquals(new HashSet<Integer>(Arrays.asList(3,4,5,6,7,8,9)),
 				solver.getBoxSquare(2, 2).getSquareSet());
 	}
+
+
+	@Test
+	public void testConfirmOnlyCandidate(){
+		Sudoku sudoku = new Sudoku();
+		sudoku.readCSV("testfile.csv");
+		SudokuSolver solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
+
+		Boolean flag = solver.findOnlyCandidate();
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
+
+
+		sudoku = new Sudoku();
+		sudoku.readCSV("testfile2.csv");
+		solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
+
+		flag = solver.findOnlyCandidate();
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
+
+		sudoku = new Sudoku();
+		sudoku.readCSV("testfile3.csv");
+		solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
+
+		flag = solver.findOnlyCandidate();
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
+	}
 }

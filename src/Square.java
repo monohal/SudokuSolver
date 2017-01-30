@@ -13,6 +13,7 @@ public class Square {
 
 	public void confirmNumber(int num){
 		number = num;
+		square.clear();
 	}
 
 	public Boolean isConfirm(){
