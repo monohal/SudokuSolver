@@ -58,12 +58,12 @@ public class SudokuSolver {
 		getBox(x / 3 + (y / 3) * 3).confirm(x % 3 + ((y % 3)  * 3), num);
 	}
 
-	public VerticalLine getVerLine(int pos){
-		return verLines.get(pos);
+	public VerticalLine getVerLine(int x){
+		return verLines.get(x);
 	}
 
-	public HorizonLine getHorLine(int pos){
-		return horLines.get(pos);
+	public HorizonLine getHorLine(int y){
+		return horLines.get(y);
 	}
 
 	public Box getBox(int pos){
