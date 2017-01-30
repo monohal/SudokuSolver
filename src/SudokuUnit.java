@@ -37,13 +37,15 @@ public class SudokuUnit implements Iterable<Square>{
 
 			for(int pos = 0 ; pos < 9; pos++){
 				Square square = getSquare(pos);
-				if(square.square.contains(num)){
-					count++;
-					if(count == 2){
-						tempPos = -1;
-						break;
+				if(! square.isConfirm()){
+					if(square.square.contains(num)){
+						count++;
+						if(count == 2){
+							tempPos = -1;
+							break;
+						}
+						tempPos = pos;
 					}
-					tempPos = pos;
 				}
 			}
 
