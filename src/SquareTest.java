@@ -144,4 +144,22 @@ public class SquareTest {
 		assertEquals(new HashSet<Integer>(Arrays.asList(3,4,5,6,7,8,9)),
 				solver.getBoxSquare(2, 2).getSquareSet());
 	}
+
+
+	@Test
+	public void testConfirmOnlyCandidate(){
+		SudokuSolver solver = new SudokuSolver();
+		solver.confirm(3, 1, 1);
+		solver.confirm(6, 2, 1);
+		solver.confirm(0, 3, 1);
+		solver.confirm(1, 6, 1);
+
+		Boolean flag = solver.findOnlyCandidate();
+		assertTrue(flag);
+		assertTrue(solver.getVerSquare(2, 0).isConfirm());
+		assertEquals(1, solver.getVerSquare(2, 0).getNumber());
+
+		Boolean flag = solver.findOnlyCandidate();
+		assertFalse(flag);
+	}
 }
