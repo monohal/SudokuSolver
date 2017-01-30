@@ -148,20 +148,44 @@ public class SquareTest {
 
 	@Test
 	public void testConfirmOnlyCandidate(){
-		SudokuSolver solver = new SudokuSolver();
-		solver.confirm(3, 1, 1);
-		solver.confirm(6, 2, 1);
-		solver.confirm(0, 3, 1);
-		solver.confirm(1, 6, 1);
-		solver.outputVerNumber();
+		Sudoku sudoku = new Sudoku();
+		sudoku.readCSV("testfile.csv");
+		SudokuSolver solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
 
 		Boolean flag = solver.findOnlyCandidate();
-		assertTrue(flag);
-		assertTrue(solver.getVerSquare(2, 0).isConfirm());
-		assertEquals(1, solver.getVerSquare(2, 0).getNumber());
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
+
+
+		sudoku = new Sudoku();
+		sudoku.readCSV("testfile2.csv");
+		solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
 
 		flag = solver.findOnlyCandidate();
-		assertFalse(flag);
-		solver.outputVerNumber();
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
+
+		sudoku = new Sudoku();
+		sudoku.readCSV("testfile3.csv");
+		solver = sudoku.solver;
+
+		solver.outputHorNumber();
+		solver.sync();
+
+		flag = solver.findOnlyCandidate();
+		solver.sync();
+		solver.outputHorNumber();
+		assertEquals(1, solver.getHorSquare(0, 0).getNumber());
+		assertTrue(solver.getHorSquare(0, 0).isConfirm());
 	}
 }
