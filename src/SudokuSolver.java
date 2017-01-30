@@ -39,7 +39,6 @@ public class SudokuSolver {
 				}
 			}
 		}
-		sync();
 		return flag;
 	}
 

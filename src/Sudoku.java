@@ -30,11 +30,11 @@ public class Sudoku {
 					new CsvConfig(),
 					new StringArrayListHandler());
 
-			for(int x = 0; x < 9; x++){
-				String[] strArray = csv.get(x);
+			for(int y = 0; y < 9; y++){
+				String[] strArray = csv.get(y);
 
-				for(int y = 0; y < 9; y++){
-					String num = strArray[y];
+				for(int x = 0; x < 9; x++){
+					String num = strArray[x];
 
 					if(! num.equals("")){
 						this.solver.confirm(x, y, Integer.valueOf(num));
