@@ -13,10 +13,29 @@ public class Sudoku {
 		Sudoku sudoku = new Sudoku();
 		sudoku.readCSV("sudoku_normal.csv");
 		Boolean flag;
-		do {
-			flag = sudoku.solver.solve();
-			sudoku.solver.outputVerNumber();
-		} while (flag);
+		int count;
+
+		for(; ;){
+			count = 0;
+			do {
+				flag = sudoku.solver.solve();
+				System.out.println("slove");
+				sudoku.solver.outputVerNumber();
+				count++;
+			} while (flag);
+
+			do{
+				flag = sudoku.solver.findOnlyCandidate();
+				System.out.println("find");
+				sudoku.solver.outputVerNumber();
+				count++;
+			} while (flag);
+
+			if(count == 2){
+				break;
+			}
+		}
+
 	}
 
 	public Sudoku() {
